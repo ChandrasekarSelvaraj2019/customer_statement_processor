@@ -1,15 +1,19 @@
 package com.bank.retail.model;
 
 import com.opencsv.bean.CsvBindByName;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.xml.bind.annotation.*;
 
-@Getter
-@Setter
+@Data
 @XmlType(name = "record")
 @XmlAccessorType(XmlAccessType.FIELD)
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Record {
 
     @XmlAttribute(name = "reference", required = true)
