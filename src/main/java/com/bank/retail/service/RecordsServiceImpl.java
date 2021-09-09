@@ -1,12 +1,14 @@
 package com.bank.retail.service;
 
 import com.bank.retail.model.Record;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class RecordsServiceImpl implements RecordsService {
 
     @Override
