@@ -21,11 +21,11 @@ There are two validations:
 At the end of the processing, a report needs to be created which will display both the transaction reference and description of each of the failed records.
 
 
-#How To Build the Application
+# How To Build the Application
 
 Run command 'mvn clean install' on project root directory
 
-#How To Run the Application
+# How To Run the Application
 
 This is a spring console application. It makes use of classpaths, so that it can be run directly in IDE with no additional configuration
 
@@ -37,4 +37,10 @@ java -Dloader.path="$(System.DefaultWorkingDirectory)/resources/" -jar CustomerS
 
 Here we can configure -Dloader.path and keep our application.properties file, records.csv and records.xml file inside folder $(System.DefaultWorkingDirectory)/resources/ 
 
+# How To make this application as a scheduler
+
+we can make this application as a scheduler by doing the following changes
+
+1. Enabling scheduling with @EnableScheduling annotation in CustomerStatementProcessor class
+2. Adding @Scheduled(cron = "0 0 0 1 * ?") annotations to methods CsvRecordProcessor.processCsvRecords and XmlRecordProcessor.processXmlRecords
 
