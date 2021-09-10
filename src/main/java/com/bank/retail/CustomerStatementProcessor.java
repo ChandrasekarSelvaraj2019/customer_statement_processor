@@ -1,7 +1,7 @@
 package com.bank.retail;
 
-import com.bank.retail.service.CsvRecordProcessor;
-import com.bank.retail.service.XmlRecordProcessor;
+import com.bank.retail.processor.CsvRecordProcessor;
+import com.bank.retail.processor.XmlRecordProcessor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

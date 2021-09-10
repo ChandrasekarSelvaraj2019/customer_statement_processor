@@ -1,9 +1,12 @@
-package com.bank.retail.service;
+package com.bank.retail.processor;
 
 import com.bank.retail.model.Record;
+import com.bank.retail.service.RecordsService;
+import com.bank.retail.service.ReportCreatorService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,11 +15,11 @@ import static org.mockito.ArgumentMatchers.anyList;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
-class CsvRecordProcessorTest {
+class XmlRecordProcessorTest {
 
     RecordsService recordsService = mock(RecordsService.class);
     ReportCreatorService reportCreatorService = mock(ReportCreatorService.class);
-    CsvRecordProcessor csvRecordProcessor = new CsvRecordProcessor(recordsService, reportCreatorService, "records.csv", "failedRecordsFromCsv.csv");
+    XmlRecordProcessor xmlRecordProcessor = new XmlRecordProcessor(recordsService, reportCreatorService, "records.xml", "failedRecordsFromXml.csv");
 
     List<Record> records = new ArrayList<>();
 
@@ -41,9 +44,9 @@ class CsvRecordProcessorTest {
     }
 
     @Test
-    void processCsvRecords() throws IOException {
+    void processXmlRecords() throws IOException, JAXBException {
         when(recordsService.getFailedRecords(anyList())).thenReturn(records);
-        csvRecordProcessor.processCsvRecords();
+        xmlRecordProcessor.processXmlRecords();
 
         verify(recordsService, atLeast(1)).getFailedRecords(anyList());
         verify(reportCreatorService, atLeast(1)).createReport(anyList(), anyString());

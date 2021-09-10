@@ -4,6 +4,8 @@
 # Requirements
 
 We receive monthly deliveries of customer statement records. This information is delivered in two formats, CSV and XML. These records need to be validated.
+
+
 Input
 
 Each Record consist of Transaction reference , Account number,Start Balance,Mutation,Description,End Balance
@@ -25,7 +27,7 @@ Run command 'mvn clean install' on project root directory
 
 #How To Run the Application
 
-This is a spring console application. 
+This is a spring console application. It makes use of classpaths, so that it can be run directly in IDE with no additional configuration
 
 To run this locally directly run CustomerStatementProcessor.main Method. 
 
@@ -33,6 +35,6 @@ To run this in environment, build the application and run the application with f
 
 java -Dloader.path="$(System.DefaultWorkingDirectory)/resources/" -jar CustomerStatementProcessor-*.jar
 
-Here we can configure -Dloader.path and keep our application.properties file, records.csv and records.xml file
+Here we can configure -Dloader.path and keep our application.properties file, records.csv and records.xml file inside folder $(System.DefaultWorkingDirectory)/resources/ 
 
 
